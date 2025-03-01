@@ -1,0 +1,41 @@
+
+### **Algorithm Explanation**:
+
+#### **1. MapFractionToRoman(double fraction):**
+- **Purpose**: Converts the fractional part of a decimal number into the closest Roman numeral fraction.
+- **How it works**:
+  - It uses predefined arrays `commonFractions` and `romanFractions` to map common decimal fractions (like 0.1, 0.125, etc.) to their Roman numeral equivalents (like "⅒", "⅛", etc.).
+  - It calculates the **closest match** for the fractional part by comparing the input fraction to the predefined common fractions and choosing the one with the smallest difference.
+
+#### **2. IntegerToRoman(int number):**
+- **Purpose**: Converts the integer part of a number into Roman numerals (handles numbers up to 9999).
+- **How it works**:
+  - It uses two arrays: `digitsValues` and `romanDigits`, which map numeric values (like 1000, 900, etc.) to their Roman numeral equivalents (like "M", "CM", etc.).
+  - It iterates through the `digitsValues` array, appending the corresponding Roman numeral to the result while subtracting the value from the input number.
+
+#### **3. FloatToRoman(double number):**
+- **Purpose**: Converts a floating-point number (decimal) into Roman numerals (both integer and fractional parts).
+- **How it works**:
+  - It separates the integer and fractional parts of the number.
+  - Converts the integer part using `IntegerToRoman` and the fractional part using `MapFractionToRoman`.
+  - Combines the two results to form the final Roman numeral representation.
+
+#### **4. RomanToFloat(string roman):**
+- **Purpose**: Converts a Roman numeral (which may include fractional parts) back into a floating-point number.
+- **How it works**:
+  - It parses the Roman numeral character by character, using the `RomanDigitValue` function to convert each Roman numeral digit into its numeric value.
+  - It accounts for fractional parts (like "½", "⅓", etc.) by adding their decimal equivalents to the result.
+
+#### **5. CalculateAccuracy(double original, double reconstructed):**
+- **Purpose**: Calculates the accuracy of the conversion by comparing the original number and the reconstructed number.
+- **How it works**:
+  - It computes the absolute error between the original and reconstructed numbers and calculates the accuracy as a percentage.
+
+#### **6. Main(string[] args):**
+- **Purpose**: Demonstrates the functionality of the algorithm.
+- **How it works**:
+  - It tests the conversion process on a set of sample numbers.
+  - It measures the time taken for each conversion using `Stopwatch`.
+  - It prints the original number, its Roman numeral representation, the reconstructed number, the accuracy, and the time taken.
+
+---
